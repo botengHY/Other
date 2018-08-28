@@ -18,7 +18,7 @@
 
 
 // Following does not work because the original ptr does not change
-void fnc0(char * & s)
+void fnc0(char * s)
 {
 	s = "hello\n";
 }
@@ -59,6 +59,8 @@ int main()
 	fnc3(str3);
 	printf("%s", str3);
 	printf("%c\n", str3[4]);
+	//Always delete after new to avoid memory leak
+	delete [] str3; 
 	//
 	return 0;
 }
